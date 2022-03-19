@@ -2,27 +2,27 @@
 
 CREATE TABLE dbo.D_Tiempo
     (
-    id_fecha         INT      NOT NULL,
+    id_fecha           		 INT  NOT NULL,
     fecha			 DATETIME NOT NULL,
     anio			 SMALLINT NOT NULL,
-	semestre		 SMALLINT NOT NULL,
-	trimestre		 SMALLINT NOT NULL,
-    mes              SMALLINT NOT NULL,
-    semana           SMALLINT NOT NULL,
-    dia              SMALLINT NOT NULL,
-    dia_semana		 SMALLINT NOT NULL,
-	nsemestre	     VARCHAR(15) NOT NULL,
-	ntrimestre	     VARCHAR(15) NOT NULL,
-    nmes			 VARCHAR(15) NOT NULL,  -- representa el nombre del mes ---
-    nmes3l			 VARCHAR(15) NOT NULL,  -- nombre del mes 3L
-    nsemana			 VARCHAR(15) NOT NULL, -- numero de semana
-    ndia             VARCHAR(15) NOT NULL, -- numero del día
-    ndiasemana       VARCHAR(15) NOT NULL,
+    semestre		 	 SMALLINT NOT NULL,
+    trimestre		 	 SMALLINT NOT NULL,
+    mes              		 SMALLINT NOT NULL,
+    semana           		 SMALLINT NOT NULL,
+    dia              		 SMALLINT NOT NULL,
+    dia_semana		 	 SMALLINT NOT NULL,
+    nsemestre	     		 VARCHAR(15) NOT NULL,
+    ntrimestre	     	   	 VARCHAR(15) NOT NULL,
+    nmes			 VARCHAR(15) NOT NULL,  
+    nmes3l			 VARCHAR(15) NOT NULL,  
+    nsemana			 VARCHAR(15) NOT NULL, 
+    ndia             		 VARCHAR(15) NOT NULL, 
+    ndiasemana       		 VARCHAR(15) NOT NULL,
     CONSTRAINT [PK_Tiempo_id_fecha] PRIMARY KEY NONCLUSTERED (id_fecha)
 
  )
 
--- script TLSQL --------
+-- Script para poblar la tabla --------
 
 GO
 DECLARE @FechaDesde as datetime, @FechaHasta as datetime
