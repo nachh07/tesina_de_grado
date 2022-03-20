@@ -20,7 +20,7 @@ CREATE TABLE dbo.D_Clientes
 GO
 CREATE TABLE dbo.D_Productos
 (
- id_producto  INT NOT NULL, 
+ id_producto  INT NOT NULL IDENTITY(1,1) NOT NULL, 
  cod_producto VARCHAR(50) NOT NULL,
  nombre       VARCHAR(255) NOT NULL,
  marca        VARCHAR(255), 
