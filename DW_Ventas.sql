@@ -9,6 +9,7 @@ USE DW_VENTAS
 CREATE TABLE dbo.D_Clientes
 (
    id_cliente INT IDENTITY(1,1) NOT NULL,
+   cod_cliente VARCHAR(7),
    nombre VARCHAR(50) NOT NULL,
    apellido VARCHAR(50) NOT NULL,
    provincia VARCHAR(50) NOT NULL, 
@@ -20,7 +21,7 @@ CREATE TABLE dbo.D_Clientes
 GO
 CREATE TABLE dbo.D_Productos
 (
- id_producto  INT NOT NULL IDENTITY(1,1) NOT NULL, 
+ id_producto  INT NOT NULL IDENTITY(1,1), 
  cod_producto VARCHAR(50) NOT NULL,
  nombre       VARCHAR(255) NOT NULL,
  marca        VARCHAR(255), 
@@ -37,29 +38,6 @@ CREATE TABLE D_Sucursales(
 	CONSTRAINT [PK_Sucursal_id_sucursal] PRIMARY KEY NONCLUSTERED (id_sucursal)
 )
 
---------- D_Tiempo -----------------
-
-CREATE TABLE dbo.D_Tiempo
-    (
-    id_fecha         INT      NOT NULL,
-    fecha			 DATETIME NOT NULL,
-    anio			 SMALLINT NOT NULL,
-	semestre		 SMALLINT NOT NULL,
-	trimestre		 SMALLINT NOT NULL,
-    mes              SMALLINT NOT NULL,
-    semana           SMALLINT NOT NULL,
-    dia              SMALLINT NOT NULL,
-    dia_semana		 SMALLINT NOT NULL,
-	nsemestre	     VARCHAR(15) NOT NULL,
-	ntrimestre	     VARCHAR(15) NOT NULL,
-    nmes			 VARCHAR(15) NOT NULL,  -- representa el nombre del mes ---
-    nmes3l			 VARCHAR(15) NOT NULL,  -- nombre del mes 3L
-    nsemana			 VARCHAR(15) NOT NULL, -- numero de semana
-    ndia             VARCHAR(15) NOT NULL, -- numero del día
-    ndiasemana       VARCHAR(15) NOT NULL,
-    CONSTRAINT [PK_Tiempo_id_fecha] PRIMARY KEY NONCLUSTERED (id_fecha)
-
- )
 
 -------------- D_Motivodevolucion --------
 
@@ -79,6 +57,7 @@ CREATE TABLE F_Ventas(
     id_producto     INT NOT NULL,
     id_sucursal     INT NOT NULL,
     id_tiempo       INT NOT NULL,
+    cantidad        FLOAT NOT NULL,
     costo           FLOAT NOT NULL, 
     precio          FLOAT NOT NULL,
     utilidad        FLOAT NOT NULL 
