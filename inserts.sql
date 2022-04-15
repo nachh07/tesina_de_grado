@@ -30,9 +30,7 @@ SELECT dc.id_cliente, dp.id_producto, ds.id_sucursal, dt.id_fecha,
 	SUM(tvd.CANTIDAD*tvd.COSTO) AS COSTO,
 	SUM(tvd.CANTIDAD*tvd.VALOR) AS PRECIO,
 	SUM(tvd.CANTIDAD*tvd.VALOR-tvd.CANTIDAD*tvd.COSTO) AS [UTILIDAD BRUTA]
-FROM BDVentas.dbo.tblVentas tv
-	INNER JOIN														
-	BDVentas.dbo.tblVentas_Detalle tvd on tv.ID = tvd.ID     -- DETALLE DE LAS VENTAS   
+FROM BDVentas.dbo.tblVentas tv 
 	INNER JOIN 
 	DW_VENTAS.dbo.D_Clientes dc on tv.COD_ID = dc.cod_cliente COLLATE DATABASE_DEFAULT  
 	INNER JOIN 
