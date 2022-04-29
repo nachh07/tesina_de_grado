@@ -66,19 +66,3 @@ CREATE TABLE F_Ventas(
    CONSTRAINT [FK_F_cod_sucursal] FOREIGN KEY (id_sucursal) REFERENCES D_Sucursales(id_sucursal),
    CONSTRAINT [FK_F_id_tiempo] FOREIGN KEY (id_tiempo) REFERENCES D_Tiempo(id_fecha)
 )
-
-CREATE TABLE dbo.F_Devoluciones
-(
-   id_cliente         INT NOT NULL,
-   cod_producto       INT NOT NULL, 
-   id_tiempo         INT NOT NULL, 
-   id_sucursal        INT NOT NULL, 
-   id_motivo          INT NOT NULL,
-   importe_devuelto FLOAT NOT NULL, 
-   unidades_devueltas INT NOT NULL,
-   CONSTRAINT [FK_F_id_cliente_devolucion] FOREIGN KEY (id_cliente) REFERENCES D_Clientes(id_cliente),
-   CONSTRAINT [FK_F_cod_producto_devolucion] FOREIGN KEY (cod_producto) REFERENCES D_Productos(id_producto),
-   CONSTRAINT [FK_F_id_tiempo__devolucion] FOREIGN KEY (id_tiempo) REFERENCES D_Tiempo(id_fecha),
-   CONSTRAINT [FK_F_cod_sucursal_devolucion] FOREIGN KEY (id_sucursal) REFERENCES D_Sucursales(id_sucursal),
-   CONSTRAINT [FK_F_id_motivo_devolucion] FOREIGN KEY (id_motivo) REFERENCES D_Motivodevolucion(id_motivo)
-)
