@@ -8,9 +8,7 @@ conn_dbventas = pyodbc.connect('driver={SQL SERVER};server='+server+';database='
 #Añadimos la columna cod_cliente al dataframe para insertar los datos de COD_ID de la tabla clientes de la base de datos
 df = df.assign(cod_cliente='')
 
-#Filtramos por género 
-df.loc[df["sexo_id"] == 1, "sexo_id"] = "M" 
-df.loc[df["sexo_id"] == 2, "sexo_id"] = "H"
+df["sexo_id"]=df["sexo_id"].map(lambda x: "M" if x==1 else "H")
 
 #reacomodamos las columnas del df clientes
 df_clientes = df['cod_cliente','nombre','apellido','provincia', 'sexo_id', 'edad', 'edad', 'provincia']
